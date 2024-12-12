@@ -1,0 +1,158 @@
+body{
+  margin: 0px;
+  background-color: #3E7E8C;
+  width: 100%;
+  height: calc(100vh - 100px);
+}
+h1, p, ul{
+  margin: 0px;
+}
+ul{
+  padding: 0px;
+  list-style: none;
+}
+.container{
+  margin: 0 auto;
+  max-width: 500px;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+}
+.container h1{
+  font-size: 3rem;
+  font-family: monospace;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.container form{
+  display: grid;
+  grid-template-columns: 8fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.container form input{
+  padding:  10px 5px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: monospace;
+}
+.container form input:focus{
+  outline:2px solid #56BF7B;
+}
+.container form button{
+  border: none;
+  font-family: monospace;
+  font-size: 1.3rem;
+  background-color: #56BF7B;
+  color: #FFFFFF;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.container form button:hover{
+  background-color: #50b373;
+}
+.lista-tarefas li{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+  align-items: center;
+  padding: 0 6px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.lista-tarefas li .setas{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+.lista-tarefas li span{
+  width: 100%;
+  padding: 10px 6px;
+  font-family: monospace;
+  font-size: .875rem;
+  cursor: pointer;
+  word-break: break-word;
+}
+.lista-tarefas li input{
+  width: 100%;
+  padding: 4px;
+  margin: 4px 0px 4px 0px;
+  font-family: monospace;
+  font-size: .875rem;
+  display: none;
+}
+.lista-tarefas li input.ativo{
+  display: block;
+}
+.lista-tarefas li .button-edita,.lista-tarefas li .button-apaga {
+  border: none;
+  border-radius: 4px;
+  padding: 2px 2px 1px 3px;
+  cursor: pointer;
+}
+.lista-tarefas li .button-edita{
+  background-color: #56BF7B;
+}
+.lista-tarefas li .button-edita.ativo{
+  background-color: #3E7E8C;
+}
+.lista-tarefas li .button-apaga{
+  background-color: #F25749;
+}
+.lista-tarefas li .paleta{
+  position: absolute;
+  background-color: #e0e0e0;
+  padding: 3px;
+  border-radius: 10px;
+  right: 0px;
+  bottom: -30px;
+  display: none;
+  gap: 2px;
+  z-index: 50;
+}
+.lista-tarefas li .paleta.ativo{
+  display: flex;
+}
+
+.lista-tarefas li .paleta::after{
+  content: "";
+  width: 0px;
+  height: 0px;
+  border-bottom: 10px solid #e0e0e0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  position: absolute;
+  top: -10px;
+  right: 30px;
+  z-index: 100;
+}
+.lista-tarefas li .paleta .button-paleta{
+  border: 2px solid black;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.lista-tarefas li .paleta .button-paleta.branco{
+  background-color: #FFFFFF;
+}
+.lista-tarefas li .paleta .button-paleta.azul{
+  background-color: #A0C4FF;
+}
+.lista-tarefas li .paleta .button-paleta.amarelo{
+  background-color: #FDFFB6;
+}
+.lista-tarefas li .paleta .button-paleta.vermelho{
+  background-color: #FFADAD;
+}
+.lista-tarefas li .paleta .button-paleta.verde{
+  background-color: #CAFFBF;
+}

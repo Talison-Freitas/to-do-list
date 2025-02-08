@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #201C8C;
+  background-color: #7BD9B0;
   font-family: monospace;
 }
 ul {
@@ -35,7 +35,7 @@ h1, h2, p {
   border-radius: 4px;
   border: 0;
   font-family: monospace;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 .input-tarefa input:focus{
   outline: solid #47458C;
@@ -47,11 +47,69 @@ h1, h2, p {
   font-family: monospace;
   font-size: 1.3rem;
   border-radius: 4px;
-  background-color: #5155A6;
+  background-color: #5CB364;
+  color: #FFFFFF;
 }
 .input-tarefa button:hover {
-  background-color: #494ea7;
+  background-color: #53a35b;
 }
 .input-tarefa button:active {
-  background-color: #5d61a8;
+  background-color: #64be6d;
+}
+.lista-tarefas {
+  margin-top: 20px;
+  width: 100%;
+}
+.lista-tarefas li {
+  background-color: #FFFFFF;
+  padding: 5px 10px;
+  border-radius: 4px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.lista-tarefas li .setas {
+  display: flex;
+  flex-direction: column;
+  max-width:max-content;
+  gap: 10px;
+}
+.lista-tarefas li .setas button {
+  border: none;
+  background-color: transparent;
+  padding: 0px;
+  cursor: pointer;
+}
+.lista-tarefas li span {
+  width: 100%;
+  padding: 5px;
+  font-size: 1.2rem;
+  border-radius: 4px;
+}
+.lista-tarefas li input {
+  font-family: monospace;
+  width: 100%;
+  padding: 10px 5px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: none;
+}
+.lista-tarefas li .button-apaga, .lista-tarefas li .button-edita{
+  border: none;
+  padding: 4px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.lista-tarefas li .button-edita {
+  background-color: #ffca3a;
+}
+.lista-tarefas li .button-apaga {
+  background-color: #ff595e;
+}
+.lista-tarefas li .button-edita:hover {
+    background-color: #f5c238;
+}
+.lista-tarefas li .button-apaga:hover {
+  background-color: #f35358;
 }

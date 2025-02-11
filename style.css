@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #7BD9B0;
+  background-color: #7bd9b0;
   font-family: monospace;
 }
 ul {
@@ -8,7 +8,9 @@ ul {
   padding: 0;
   list-style: none;
 }
-h1, h2, p {
+h1,
+h2,
+p {
   margin: 0;
 }
 .container {
@@ -20,7 +22,7 @@ h1, h2, p {
   margin-top: 200px;
 }
 .container h1 {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
@@ -36,9 +38,10 @@ h1, h2, p {
   border: 0;
   font-family: monospace;
   font-size: 1.2rem;
+  background-color: #f0f0f0;
 }
-.input-tarefa input:focus{
-  outline: solid #47458C;
+.input-tarefa input:focus {
+  outline: solid #5cb364;
 }
 .input-tarefa button {
   padding: 10px;
@@ -47,8 +50,9 @@ h1, h2, p {
   font-family: monospace;
   font-size: 1.3rem;
   border-radius: 4px;
-  background-color: #5CB364;
-  color: #FFFFFF;
+  background-color: #5cb364;
+  color: #ffffff;
+  cursor: pointer;
 }
 .input-tarefa button:hover {
   background-color: #53a35b;
@@ -61,17 +65,19 @@ h1, h2, p {
   width: 100%;
 }
 .lista-tarefas li {
-  background-color: #FFFFFF;
+  background-color: rgb(255, 255, 255);
   padding: 5px 10px;
   border-radius: 4px;
   display: flex;
   gap: 10px;
   align-items: center;
+  margin-bottom: 10px;
+  position: relative;
 }
 .lista-tarefas li .setas {
   display: flex;
   flex-direction: column;
-  max-width:max-content;
+  max-width: max-content;
   gap: 10px;
 }
 .lista-tarefas li .setas button {
@@ -85,6 +91,12 @@ h1, h2, p {
   padding: 5px;
   font-size: 1.2rem;
   border-radius: 4px;
+  display: none;
+  word-break: break-all;
+  cursor: pointer;
+}
+.lista-tarefas li span.ativo {
+  display: block;
 }
 .lista-tarefas li input {
   font-family: monospace;
@@ -93,14 +105,23 @@ h1, h2, p {
   font-size: 1rem;
   border-radius: 4px;
   border: none;
+  display: none;
 }
-.lista-tarefas li .button-apaga, .lista-tarefas li .button-edita{
+.lista-tarefas li input.ativo {
+  display: block;
+}
+.lista-tarefas li .buttons {
+  display: flex;
+  gap: 10px;
+  position: relative;
+}
+.lista-tarefas li .button-apaga,
+.lista-tarefas li .button-edita {
   border: none;
   padding: 4px 6px;
   border-radius: 4px;
   cursor: pointer;
 }
-
 .lista-tarefas li .button-edita {
   background-color: #ffca3a;
 }
@@ -108,8 +129,73 @@ h1, h2, p {
   background-color: #ff595e;
 }
 .lista-tarefas li .button-edita:hover {
-    background-color: #f5c238;
+  background-color: #f5c238;
 }
 .lista-tarefas li .button-apaga:hover {
   background-color: #f35358;
+}
+@keyframes toBottom {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.lista-tarefas li .paleta-cores {
+  position: absolute;
+  background-color: #f0f0f0;
+  bottom: -45px;
+  left: -46px;
+  border-radius: 20px;
+  padding: 4px;
+  gap: 4px;
+  display: none;
+  z-index: 1000;
+}
+.lista-tarefas li .paleta-cores.ativo {
+  animation: toBottom 0.3s;
+  display: flex;
+}
+.lista-tarefas li .paleta-cores::after {
+  content: "";
+  width: 0px;
+  height: 0px;
+  display: block;
+  border-bottom: 12px solid #f0f0f0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  position: absolute;
+  top: -10px;
+  left: 50px;
+}
+
+.lista-tarefas li .paleta-cores .branco,
+.lista-tarefas li .paleta-cores .azul,
+.lista-tarefas li .paleta-cores .amarelo,
+.lista-tarefas li .paleta-cores .vermelho,
+.lista-tarefas li .paleta-cores .verde {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 2px solid black;
+  cursor: pointer;
+}
+.lista-tarefas li .paleta-cores .branco {
+  background-color: rgb(255, 255, 255);
+}
+.lista-tarefas li .paleta-cores .azul {
+  background-color: rgb(160, 196, 255);
+}
+.lista-tarefas li .paleta-cores .amarelo {
+  background-color: rgb(253, 255, 182);
+}
+.lista-tarefas li .paleta-cores .vermelho {
+  background-color: rgb(255, 173, 173);
+}
+.lista-tarefas li .paleta-cores .verde {
+  background-color: rgb(202, 255, 191);
 }

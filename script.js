@@ -1,6 +1,7 @@
 const inputTarefa = document.querySelector(".input-tarefa input");
 const buttonTarefa = document.querySelector(".input-tarefa button");
 const listaTarefas = document.querySelector(".lista-tarefas");
+
 const criaTarefa = (texto) => {
   if (texto !== "") {
     listaTarefas.innerHTML += `      <li>
@@ -68,6 +69,7 @@ const localStorageNoDOM = () => {
     }
   }, 100);
 };
+
 const editaTarefa = (event) => {
   const tarefaLista = event.currentTarget.parentElement.parentElement;
   const inputTarefa = event.currentTarget.parentElement.previousElementSibling;
@@ -85,6 +87,7 @@ const editaTarefa = (event) => {
     inputTarefa.classList.toggle("ativo");
     salvaTarefa();
   }
+
   const paletasCores = document.querySelectorAll(".paleta-cores");
   event.currentTarget.nextElementSibling.classList.toggle("ativo");
   paletasCores.forEach((paletaCores) => {
@@ -102,6 +105,7 @@ const removeTarefa = (event) => {
   event.currentTarget.parentElement.parentElement.remove();
   salvaTarefa();
 };
+
 const concluiTarefa = (event) => {
   if (event.currentTarget.style.textDecoration !== "line-through") {
     event.currentTarget.style.textDecoration = "line-through";
@@ -111,6 +115,7 @@ const concluiTarefa = (event) => {
     salvaTarefa();
   }
 };
+
 const iteraItens = () => {
   const buttonApaga = document
     .querySelectorAll(".lista-tarefas .button-apaga")

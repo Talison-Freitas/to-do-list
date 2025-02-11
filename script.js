@@ -35,7 +35,7 @@ const salvaTarefa = () => {
   const listaArray = Array.from(listaTarefas.children);
   const listaArrayAtualizada = listaArray.map((tarefa) => {
     const cor = getComputedStyle(tarefa).backgroundColor;
-    const texto = tarefa.innerText;
+    const texto = tarefa.children[1].innerText;
     const concluido =
       getComputedStyle(tarefa.children[1]).textDecoration ===
       "line-through solid rgb(0, 0, 0)"
@@ -51,20 +51,22 @@ const salvaTarefa = () => {
 };
 
 const localStorageNoDOM = () => {
-  if (localStorage.tarefas) {
-    const listaLocalStorage = JSON.parse(localStorage.tarefas);
-    listaLocalStorage.forEach((tarefa) => {
-      criaTarefa(tarefa.texto);
-    });
-    const listaArray = Array.from(listaTarefas.children);
-    listaArray.forEach((tarefa, index) => {
-      tarefa.style.backgroundColor = listaLocalStorage[index].cor;
-      listaLocalStorage[index].concluido === true
-        ? (tarefa.children[1].style.textDecoration =
-            "line-through solid rgb(0, 0, 0)")
-        : "none solid rgb(0, 0, 0)";
-    });
-  }
+  setTimeout(() => {
+    if (localStorage.tarefas) {
+      const listaLocalStorage = JSON.parse(localStorage.tarefas);
+      listaLocalStorage.forEach((tarefa) => {
+        criaTarefa(tarefa.texto);
+      });
+      const listaArray = Array.from(listaTarefas.children);
+      listaArray.forEach((tarefa, index) => {
+        tarefa.style.backgroundColor = listaLocalStorage[index].cor;
+        listaLocalStorage[index].concluido === true
+          ? (tarefa.children[1].style.textDecoration =
+              "line-through solid rgb(0, 0, 0)")
+          : "none solid rgb(0, 0, 0)";
+      });
+    }
+  }, 100);
 };
 const editaTarefa = (event) => {
   const tarefaLista = event.currentTarget.parentElement.parentElement;
@@ -75,8 +77,8 @@ const editaTarefa = (event) => {
   if (!inputTarefa.classList.contains("ativo")) {
     spanTarefa.classList.toggle("ativo");
     inputTarefa.classList.toggle("ativo");
-    inputTarefa.value = spanTarefa.innerText;
     inputTarefa.focus();
+    inputTarefa.value = spanTarefa.innerText;
   } else {
     spanTarefa.innerText = inputTarefa.value;
     spanTarefa.classList.toggle("ativo");
